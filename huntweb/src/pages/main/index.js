@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./styles.css"
 import api from "../../services/api"
 
 //esse componente é um componente class, ou seja ele detem a troca de estados se quiser
@@ -18,7 +19,25 @@ export default class Main extends Component {
     this.setState({products: response.data.docs}); //quando precisamos alterar uma variavel de estado não fazemos da forma normal, necessitamos usar metodos próprios como o setState para o fazer.
   };
 
-  render() {
-    return <h1>Quantidad de dados no bd: {this.state.products.length}</h1>
+  render() {//se existir uma variavel de estado dentro do metodo render, o metodo fica escutando essa variavel e caso ela seja alterada, o metodo render é re executado e as alteraçoes internas são efetivadas
+    const { products } = this.state;
+
+    return(
+      <div className="product-list">
+        {products.map(product => (
+
+          <article key={product._id}>
+            <strong>{product.title}</strong>
+            <p>{product.description}</p>
+            <a href="">Acessar</a>
+          </article>
+         //quando utilizamos um map(), o react pede que adicionemos uma key em cada elemento do map(), por isso o uso do key, map() é como seu fosse um forEach().
+        ))}
+        <div className="actions">
+          <button>Anterior</button>
+          <button>Próximo</button>
+        </div>
+      </div>
+    );
   }
 }
