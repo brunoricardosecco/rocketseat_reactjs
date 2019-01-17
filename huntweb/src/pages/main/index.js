@@ -8,7 +8,7 @@ export default class Main extends Component {
   };
 
 
-  componentDidMount() { //esse metodo é usado   para fazer algo logo que o componente é     exibido em tela, assim que o componente     for carregado, esse metodo carreagará       primeiro e executará a açao
+  componentDidMount() { //esse metodo é usado   para fazer algo logo que o componente é     exibido em tela, assim que o componente     for carregado, esse metodo carreagará       primeiro e executará a açao.
     this.loadProducts();
   } 
   loadProducts = async () => { //quando criamos funções nossas, as funções precisam ser criadas no modelo de arrow function, pois se a criarmos como uma função normal, como por exemplo loadProducats() {}, não poderíamos usar a palavra reservada this, e não conseguiríamos referenciar a classe dentro da função. E quando vamos usar uma função nativa do React, a usamos em named funtion normalmente, um exemplo é componentDidMount() {}.
